@@ -1,0 +1,4 @@
+2015/01/03 19:55:07 socat[3455] N PTY is /dev/pts/19
+2015/01/03 19:55:07 socat[3455] N PTY is /dev/pts/20
+2015/01/03 19:55:07 socat[3455] N starting data transfer loop with FDs [3,3] and [5,5]
+2015/01/03 19:57:11 socat[3455] W exiting on signal 15

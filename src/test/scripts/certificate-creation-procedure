@@ -1,0 +1,31 @@
+
+
+
+ keytool -delete -alias springroot -v -keystore cacerts
+
+
+keytool -genkeypair \
+ -keystore keystore.jks \
+ -dname "CN=swamps.housecontroller.com, OU=Swamps, O=Swamps, L=Wollongong, ST=NSW, C=AU" \
+ -keypass changeit \
+ -storepass changeit \
+ -keyalg RSA \
+ -keysize 2048 \
+ -alias swampsHouseController \
+ -ext SAN=DNS:localhost,IP:127.0.0.1 \
+ -validity 9999
+
+
+ keytool -export -alias swampsHouseController -storepass changeit \
+  -file server.cer \
+  -keystore keystore.jks
+
+
+  keytool -export -alias swampsHouseController -storepass changeit \
+   -file server.cer \
+   -keystore keystore.jks
+
+
+
+
+keytool -import -alias springroot -keystore lib/security/cacerts -file /home/paul/server.cer

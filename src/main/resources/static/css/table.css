@@ -1,0 +1,57 @@
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th,tr {
+	border: 1px solid #888888;
+	border-left: 1px solid #bbbbbb;
+	padding: 1px 1px;
+	align: left;
+	text-align: left;
+	padding: 1px 1px;
+	height: 20px;
+}
+
+thead tr {
+	background-color: #AAAACC;
+}
+
+tbody tr:hover {
+	background-color: #ffff99;
+}
+
+tbody tr:active {
+    background-color: #ffebb5;
+}
+
+.td_checked_size {
+	width: 20px;
+	height: 10px;
+	max-width: 20px;
+	min-width: 20px;
+	max-height: 10px;
+	min-height: 10px; *
+	*overflow: hidden;
+	** /*(Optional)This might be useful for some overflow contents*/
+}
+
+
+.table-wrapper {
+	height: 200px;
+	overflow: auto;
+	margin-top: 20px;
+}
+
+.table-wrapper table {
+	width: 100%;
+	color: #000;
+}
+
+.table-wrapper table thead th .text {
+	position: fixed;
+	top: 0px;
+	height: 20px;
+	width: 35%;
+	border: 1px solid red;
+}
