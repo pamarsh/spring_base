@@ -1,1 +1,3 @@
-# spring_base
+This is a severaly cut down version of the software I have been running to control the IOT devices in my house.  I have removed all of the controller software as none would work without the required packages on the unix box this would run on.  Even integration test cases would have failed as it would require several environment configurations and lopbacks to be put in place. The server is meant to run on unix.
+
+What remains is the ability to control user accounts, setting up ssl, and emails. It is all done via REST as I normally have other apps ( webapps and andriod) that communicate to the server.
