@@ -20,17 +20,15 @@ public class EmailGroup {
     @Column(name = "NAME", unique = true, nullable = false, length = 30)
     private String name;
 
-
-    @OneToMany
-    //@JoinColumn(name="id")
-    private List<UserAccount> users;
+    @ElementCollection
+    private List<String> addresses;
 
 
     public EmailGroup() {}
 
-    public EmailGroup(String name, List<UserAccount> users) {
+    public EmailGroup(String name, List<String> addresses) {
         this.name = name;
-        this.users = users;
+        this.addresses = addresses;
     }
 
     public String getName() {
@@ -38,8 +36,8 @@ public class EmailGroup {
     }
 
 
-    public List<UserAccount> getEmailAddress() {
-        return users;
+    public List<String> getEmailAddress() {
+        return addresses;
     }
 
 }

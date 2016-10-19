@@ -126,10 +126,14 @@ public class EmailClientService {
     }
 
     public EmailGroupMessage addGroup(EmailGroupMessage emailGroup) {
+        EmailGroupBuilder emailGroupBuilder = EmailGroupBuilder.emptyEmailGroup()
+                .withName(emailGroup.getGroupName());
+
         for (String emailAddress : emailGroup.getEmailList()) {
-            emailGroupRepository.save(EmailGroupBuilder.emptyEmailGroup()
-            .withName(emailGroup.getGroupName()).create());
+            emailGroupBuilder.withAddress(emailAddress);
         }
+            emailGroupRepository.save(emailGroupBuilder.create());
+
         return emailGroup;
     }
 
@@ -141,8 +145,8 @@ public class EmailClientService {
         try {
             Address address[] = {new InternetAddress(emailSettings.getFromAddress())};
             mimeMessage.addFrom(address);
-            for (UserAccount users : toEmails.getEmailAddress()) {
-                mimeMessage.addRecipient(Message.RecipientType.TO,new InternetAddress(users.getEmailAddress()));
+            for (String emailAddress : toEmails.getEmailAddress()) {
+                mimeMessage.addRecipient(Message.RecipientType.TO,new InternetAddress(emailAddress));
             }
             mimeMessage.setSubject(message.getSubject());
             mimeMessage.setText(message.getBody());
